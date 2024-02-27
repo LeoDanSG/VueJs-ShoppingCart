@@ -1,6 +1,8 @@
-# Shopping Cart Project
+![Itgam Banner](md/itgam_banner.jpg)
+
+# Shopping Cart 🛒 Project
 
 Proyecto Didactico para el curso de Desarrollo de Aplicaciones para dispositivos moviles usando _VueJs - Composition API_.
 
-# Autor
+# 👤 Autor
 [Leonardo Daniel](https://github.com/LeoDanSG)
