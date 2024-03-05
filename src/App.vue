@@ -18,7 +18,7 @@ const items = ref([
 <template>
   <h1> <i v-bind:class="shoppingIcon">local_mall</i> {{ header }}</h1>
   <ul>
-    <li v-for="item in items" v-bind:key="item.id">⭐{{ item.label }}</li>
+    <li v-for="({id, label}, i) in items" v-bind:key="id">{{ i%2 === 0 ? '🔥' : '⭐' }} {{ label }}</li>
   </ul>
 </template>
 
