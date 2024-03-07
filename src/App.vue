@@ -13,7 +13,7 @@ const items = ref([
   {id: 4, label:'Galletas'}
 ]);
 const newItem = ref('');
-const newItemPriority = ref ('low');
+const newItemHighPriority = ref (false)
 </script>
 
 
@@ -21,9 +21,7 @@ const newItemPriority = ref ('low');
   <h1> <i v-bind:class="shoppingIcon">local_mall</i> {{ header }}</h1>
   <input v-model="newItem" type="text" placeholder="Agregar Articulo">
 
-  <label><input type="radio" v-model="newItemPriority" value="low">Baja</label>
-  <label><input type="radio" v-model="newItemPriority" value="high">Alta</label>
-  {{ newItemPriority === 'low'?'🧊':'🔥'}}
+ <label><input type="checkbox" v-model="newItemHighPriority">Alta Prioridad</label>
   <ul>
     <li v-for="({id, label}, i) in items" v-bind:key="id">⭐{{ label }}</li>
   </ul>
