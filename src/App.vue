@@ -24,9 +24,10 @@ const saveItems = () => {
 };
 const noItemsMessage = ref(true);
 const showForm = ref(false);
-const cancelForm = () => {
-  showForm.value = !showForm.value;
-}; 
+const doShow = (edit) => {
+  showForm.value = edit;
+  newItem.value = "";
+} 
 </script>
 
 <template>
@@ -34,7 +35,8 @@ const cancelForm = () => {
   <h1> 
     <i v-bind:class="shoppingIcon">local_mall</i> {{ header }}
   </h1>
-  <button class="btn btn-primary" @click="cancelForm">{{ showForm ? 'Cancelar' : 'Agregar Articulo' }}</button>
+  <button class="btn btn-primary" v-on:click="doShow(false)" v-if="showForm">Cancelar</button>
+  <button class="btn btn-primary" v-if="!showForm" v-on:click="doShow(true)">Agregar Articulo</button>
 </div>
   <form v-if="showForm" v-on:submit.prevent="saveItems" class="add-item form">
     
