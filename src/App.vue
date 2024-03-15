@@ -36,7 +36,7 @@ const doShow = (edit) => {
     <i v-bind:class="shoppingIcon">local_mall</i> {{ header }}
   </h1>
   <button class="btn btn-primary" v-on:click="doShow(false)" v-if="showForm">Cancelar</button>
-  <button class="btn btn-primary" v-if="!showForm" v-on:click="doShow(true)">Agregar Articulo</button>
+  <button class="btn btn-primary" v-else v-on:click="doShow(true)">Agregar Articulo</button>
 </div>
   <form v-if="showForm" v-on:submit.prevent="saveItems" class="add-item form">
     
