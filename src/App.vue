@@ -1,6 +1,6 @@
 <script setup>
 //Importando funcion para crear referencias reactivas
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 //Creando una referencia de tipo string
 const header = ref('App Lista de compras');
 const shoppingIcon = ref('material-icons shopping-cart-icon');
@@ -16,6 +16,8 @@ const togglePurchased = (item) => {
  item.purchased = !item.purchased
 };
 const newItem = ref('');
+//Creando propiedad computada
+const characterCount = computed(()=>{return newItem.value.length});
 const newItemHighPriority = ref (false)
 
 //Metodos
@@ -55,6 +57,9 @@ const doShow = (edit) => {
     <label><input type="checkbox" v-model="newItemHighPriority">Alta Prioridad</label>
     <button class="btn btn-primary">
     Agrear Articulo</button>
+    <p class="counter">
+      {{ characterCount }} / 200
+    </p>
     </form>
  
   <ul>
