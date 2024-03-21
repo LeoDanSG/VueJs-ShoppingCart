@@ -12,6 +12,9 @@ const items = ref([
 {id: 3, label:'Pan', purchased: false, highPriority: true},
 {id: 4, label:'Galletas', purchased: true, highPriority: true}
 ]);
+const togglePurchased = (item) => {
+ item.purchased = !item.purchased
+};
 const newItem = ref('');
 const newItemHighPriority = ref (false)
 
@@ -49,11 +52,17 @@ const doShow = (edit) => {
     </form>
  
   <ul>
-
-    <li v-for="({id, label, purchased, highPriority}) in items" 
+    <li v-for="({id, label, purchased, highPriority}, index) in items"
+    @click="togglePurchased(items[index])" 
     :class="{priority: highPriority, strikeout:purchased}" 
     v-bind:key="id">⭐{{ label }}</li>
   </ul>
+  
+  <!-- <ul>
+    <li v-for="({id, label, purchased, highPriority}) in items" 
+    :class="[purchased ? 'strikeout' : '', highPriority ? 'priority' : '']" 
+    v-bind:key="id">⭐{{ label }}</li>
+  </ul> -->
  <p v-if="items.length === 0">🥀No hay elementos en la lista🥀</p> 
 </template>
 
